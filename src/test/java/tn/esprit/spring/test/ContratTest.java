@@ -22,7 +22,7 @@ public class ContratTest {
 		Date date = new Date();
 		try {
 		  date = DateFor.parse("08/07/2019");
-		  System.out.println("Date : "+date);
+		  System.err.println("Date : "+date);
 			} catch (ParseException e) {
 			e.printStackTrace();
 		}
