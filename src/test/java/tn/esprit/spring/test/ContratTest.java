@@ -24,7 +24,6 @@ public class ContratTest {
 	
 	private static final Logger l = LogManager.getLogger(ContratTest.class);
 	
-	/*@Test
 	@After("execution(* tn.esprit.spring.services.*.*(..))")
 	public void testAjoutContrat() {
 		try {
@@ -38,7 +37,7 @@ public class ContratTest {
 		} catch (Exception e) {
 			l.error("Error adding contract: "+e);
 		}
-	}*/
+	}
 	
 	@Test
 	public void testAffectContratToEmp() {
