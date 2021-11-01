@@ -43,7 +43,7 @@ public class ContratTest {
 	public void testAffectContratToEmp() {
 		try {
 			l.debug("Affecting contract to employe");
-			emp_service.affecterContratAEmploye(1, 1);
+			employeservice.affecterContratAEmploye(1, 1);
 			l.info("Contract affected to employe");
 		} catch (Exception e) {
 			l.error("Error affecting contract to emp: "+e);
@@ -54,7 +54,7 @@ public class ContratTest {
 	public void testDeleteAllContracts() {
 		try {
 			l.debug("Deleting all contracts");
-			emp_service.deleteAllContratJPQL();
+			employeservice.deleteAllContratJPQL();
 			l.info("All contracts are deleted");
 		} catch (Exception e) {
 			l.error("Error deleting all contracts");

@@ -12,8 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 @Entity
@@ -37,6 +35,15 @@ public class Departement implements Serializable {
 	
 	@ManyToOne
 	private Entreprise entreprise;
+
+	
+	
+	
+	public Departement(String name, Entreprise entreprise) {
+		super();
+		this.name = name;
+		this.entreprise = entreprise;
+	}
 
 	public Departement() {
 		super();
