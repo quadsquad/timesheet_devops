@@ -20,7 +20,7 @@ import tn.esprit.spring.services.EmployeServiceImpl;
 public class ContratTest {
 	
 	@Autowired
-	public EmployeServiceImpl emp_service;
+	public EmployeServiceImpl employeservice;
 	
 	private static final Logger l = LogManager.getLogger(ContratTest.class);
 	
@@ -31,8 +31,8 @@ public class ContratTest {
 			Date dateDebut = dateFormat.parse("2021-04-30");
 			Contrat c1 = new Contrat (dateDebut, "Contrat de travail temporaire", 500);
 			l.debug("Contract is being added!");
-			emp_service.ajouterContrat(c1);
-			emp_service.deleteContratById(c1.getReference());
+			employeservice.ajouterContrat(c1);
+			employeservice.deleteContratById(c1.getReference());
 			l.info("Contract added successfully! "+c1);
 		} catch (Exception e) {
 			l.error("Error adding contract: "+e);
