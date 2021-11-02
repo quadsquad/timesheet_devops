@@ -20,11 +20,7 @@ import tn.esprit.spring.services.EmployeServiceImpl;
 public class ContratTest {
 	
 	@Autowired
-<<<<<<< HEAD
-	public EmployeServiceImpl employeservice;
-=======
 	public EmployeServiceImpl empservice;
->>>>>>> origin/sofien
 	
 	private static final Logger l = LogManager.getLogger(ContratTest.class);
 	
@@ -36,18 +32,12 @@ public class ContratTest {
 			Date dateDebut = dateFormat.parse("2021-04-30");
 			Contrat c1 = new Contrat (dateDebut, "Contrat de travail temporaire", 500);
 			l.debug("Contract is being added!");
-<<<<<<< HEAD
-			employeservice.ajouterContrat(c1);
-			employeservice.deleteContratById(c1.getReference());
-			l.info("Contract added successfully! "+c1);
-=======
 			empservice.ajouterContrat(c1);
 			empservice.deleteContratById(c1.getReference());
 			String successMsg = "Contract added successfully!";
 			l.info(successMsg);
 			l.info("\n");
 			l.info(c1);
->>>>>>> origin/sofien
 		} catch (Exception e) {
 			l.error(e);
 		}
@@ -57,11 +47,7 @@ public class ContratTest {
 	public void testAffectContratToEmp() {
 		try {
 			l.debug("Affecting contract to employe");
-<<<<<<< HEAD
-			employeservice.affecterContratAEmploye(1, 1);
-=======
 			empservice.affecterContratAEmploye(1, 1);
->>>>>>> origin/sofien
 			l.info("Contract affected to employe");
 		} catch (Exception e) {
 			l.error(e);
@@ -72,11 +58,7 @@ public class ContratTest {
 	public void testDeleteAllContracts() {
 		try {
 			l.debug("Deleting all contracts");
-<<<<<<< HEAD
-			employeservice.deleteAllContratJPQL();
-=======
 			empservice.deleteAllContratJPQL();
->>>>>>> origin/sofien
 			l.info("All contracts are deleted");
 		} catch (Exception e) {
 			l.error("Error deleting all contracts");
