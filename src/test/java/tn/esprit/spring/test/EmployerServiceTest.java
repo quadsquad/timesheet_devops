@@ -1,7 +1,6 @@
 package tn.esprit.spring.test;
 
 import static org.junit.Assert.*;
-import java.text.ParseException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +21,9 @@ public class EmployerServiceTest {
 	IEmployeService es;
 	
 	@Test
-	public void testAjouterEmployer() throws ParseException {
-		int e= es.ajouterEmploye(new Employe("ahmed", "benhassine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
-		//assertEquals("ahmed", es.getEmployePrenomById(e));
+	public void testAjouterEmployer() {
+		int e= es.ajouterEmploye(new Employe("ahmed", "Benhassine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
+		
 		es.deleteEmployeById(e);
 	}
 
@@ -32,7 +31,7 @@ public class EmployerServiceTest {
 	
 	
 	@Test
-	public void testGetEmployerPrenomById() throws ParseException {
+	public void testGetEmployerPrenomById()  {
 	
 		
 	assertEquals("benhassine",es.getEmployePrenomById(1));
@@ -40,10 +39,10 @@ public class EmployerServiceTest {
 	}
 	
 	@Test
-	public void testdeletetEmployerById() throws ParseException {
+	public void testdeletetEmployerById() {
 	
 		
-	int e= es.ajouterEmploye(new Employe("ahmed", "benhassine", "ahmedbhhhhhnh@esprit.tn", true, Role.CHEF_DEPARTEMENT));
+	int e= es.ajouterEmploye(new Employe("ahmed", "BeNHASSINE", "ahmedbhhhhhnh@esprit.tn", true, Role.CHEF_DEPARTEMENT));
 	assertEquals("benhassine", es.getEmployePrenomById(e));
 
 		es.deleteEmployeById(e);
@@ -51,7 +50,7 @@ public class EmployerServiceTest {
 	
 	}
 	@Test
-public void TestgetAllEmployes() throws ParseException {
+public void testgetAllEmployes()  {
 		
 		
 		es.getAllEmployes();
@@ -59,17 +58,17 @@ public void TestgetAllEmployes() throws ParseException {
 		}
 
 	@Test
-		public void TestgetNombreEmployeJPQL() throws ParseException {
+		public void testgetNombreEmployeJPQL()  {
 		
 			
-	assertEquals(4,es.getNombreEmployeJPQL());
+				assertEquals(4,es.getNombreEmployeJPQL());
 		
 	}
 	
 
 	
 	@Test
-	public void TestgetSalaireByEmployeIdJPQL() throws ParseException {
+	public void testgetSalaireByEmployeIdJPQL() {
 			
 			
 			es.getSalaireByEmployeIdJPQL(1);
@@ -77,7 +76,7 @@ public void TestgetAllEmployes() throws ParseException {
 			}
 
       @Test
-		public void TestmettreAjourEmailByEmployeIdJPQL() throws ParseException {
+		public void testmettreAjourEmailByEmployeIdJPQL() {
 				
 				
 			es.mettreAjourEmailByEmployeIdJPQL("ahmedbnnh@gmail.com",25);

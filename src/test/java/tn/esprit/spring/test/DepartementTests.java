@@ -14,7 +14,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import tn.esprit.spring.entities.Departement;
-import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.services.EntrepriseServiceImpl;
 import tn.esprit.spring.services.IEmployeService;
 
@@ -31,18 +30,14 @@ public class DepartementTests {
 	
 
 	
-	public static final int IdEmploye=0;
-	public static final Departement idDepart=null;
-	public static final Entreprise idEntre= null;
-	
 	private static final Logger l= LogManager.getLogger(DepartementTests.class);
 	
 	
 	
 	@Test
-	public void TestAjoutDeppartement(){
+	public void testAjoutDeppartement(){
 			//créer un nouveau departement
-		Departement d1= new Departement("IT",  new Entreprise("SOFRECOM", "LAC"));
+		Departement d1= new Departement("IT");
 		entrepriseServiceImpl.ajouterDepartement(d1);
 		entrepriseServiceImpl.deleteDepartementById(d1.getId());
 		ies.getSalaireMoyenByDepartementId(d1.getId());
@@ -51,7 +46,8 @@ public class DepartementTests {
 	@After("execution(* tn.esprit.spring.service.*.*(..))")
 	public void logMethodExit(JoinPoint joinPoint){
 		String name= joinPoint.getSignature().getName();
-		l.info("Out of method : " +name);
+		String msg="Out of method : " +name;
+		l.info(msg);
 	}
 	@Around("execution(* tn.esprit.spring.service.*.*(..))")
 	public Object profile(ProceedingJoinPoint pjp) throws Throwable {
@@ -61,7 +57,8 @@ public class DepartementTests {
 	if (elapsedTime > 3000) {
 		l.fatal("This process takes more than 3sec to execute");
 	}
-	l.info("Method execution time: " + elapsedTime + " milliseconds.");
+	String msg="Method execution time: " + elapsedTime + " milliseconds.";
+	l.info(msg);
 		return obj;
 	}
 }

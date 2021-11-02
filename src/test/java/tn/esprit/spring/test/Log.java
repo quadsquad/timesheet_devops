@@ -20,7 +20,8 @@ public class Log {
 	if (elapsedTime > 3000) {
 		l.fatal("This process takes more than 3sec to execute");
 	}
-	l.info("Method execution time: " + elapsedTime + " milliseconds.");
+	String msg= "Method execution time: " + elapsedTime + " milliseconds.";
+	l.info(msg);
 	return obj;
 	}
 

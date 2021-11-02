@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import tn.esprit.spring.entities.Contrat;
+import tn.esprit.spring.entities.ContratDto;
 import tn.esprit.spring.entities.Employe;
+import tn.esprit.spring.entities.EmployeDTO;
 import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.entities.Mission;
 import tn.esprit.spring.entities.Timesheet;
@@ -34,14 +35,19 @@ public class RestControlEmploye {
 
 	
 	// http://localhost:8081/SpringMVC/servlet/ajouterEmployer
-	//{"id":1,"nom":"kallel", "prenom":"khaled", "email":"Khaled.kallel@ssiiconsulting.tn", "isActif":true, "role":"INGENIEUR"}
+
 	
 	@PostMapping("/ajouterEmployer")
-	@ResponseBody
-	public Employe ajouterEmploye(@RequestBody Employe employe)
+	public Employe ajouterEmploye(EmployeDTO employe)
 	{
-		iemployeservice.ajouterEmploye(employe);
-		return employe;
+		Employe persistantEmploye= new Employe();
+		
+		persistantEmploye.setEmail(employe.getEmail());
+		persistantEmploye.setNom(employe.getNom());
+		persistantEmploye.setPrenom(employe.getPrenom());
+		persistantEmploye.setRole(employe.getRole());
+		iemployeservice.ajouterEmploye(persistantEmploye);
+		return persistantEmploye;
 	}
 	
 	// Modifier email : http://localhost:8081/SpringMVC/servlet/modifyEmail/1/newemail
@@ -67,10 +73,13 @@ public class RestControlEmploye {
 
 	// http://localhost:8081/SpringMVC/servlet/ajouterContrat
 	@PostMapping("/ajouterContrat")
-	@ResponseBody
-	public int ajouterContrat(@RequestBody Contrat contrat) {
-		iemployeservice.ajouterContrat(contrat);
-		return contrat.getReference();
+	public int ajouterContrat(ContratDto contrat) {
+		Contrat persistantContrat= new Contrat();
+		persistantContrat.setDateDebut(contrat.getDateDebut());
+		persistantContrat.setSalaire(contrat.getSalaire());
+		persistantContrat.setTypeContrat(contrat.getTypeContrat());
+		iemployeservice.ajouterContrat(persistantContrat);
+		return persistantContrat.getReference();
 	}
 	
 	// http://localhost:8081/SpringMVC/servlet/affecterContratAEmploye/6/1

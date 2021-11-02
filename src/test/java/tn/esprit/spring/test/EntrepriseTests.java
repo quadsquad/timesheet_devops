@@ -27,7 +27,7 @@ public class EntrepriseTests {
 	public EntrepriseServiceImpl entrepriseServiceImpl;
 	
 	@Test
-	public void TesterEntreprise() {
+	public void testerEntreprise() {
 		Entreprise e1= new Entreprise("MEDIANET", "Tunis");
 		entrepriseServiceImpl.ajouterEntreprise(e1);
 		entrepriseServiceImpl.getEntrepriseById(e1.getId());
@@ -40,7 +40,8 @@ public class EntrepriseTests {
 	@After("execution(* tn.esprit.spring.service.*.*(..))")
 	public void logMethodExit(JoinPoint joinPoint){
 		String name= joinPoint.getSignature().getName();
-		l.info("Out of method : " +name);
+		String msg= "Out of method : " +name;
+		l.info(msg);
 	}
 	@Around("execution(* tn.esprit.spring.service.*.*(..))")
 	public Object profile(ProceedingJoinPoint pjp) throws Throwable {
@@ -50,7 +51,8 @@ public class EntrepriseTests {
 	if (elapsedTime > 3000) {
 		l.fatal("This process takes more than 4 secondes to execute the function");
 	}
-	l.info("Method execution time : " + elapsedTime + " milliseconds.");
+	String msg= "Method execution time : " + elapsedTime + " milliseconds.";
+	l.info(msg);
 		return obj;
 	}
 }
