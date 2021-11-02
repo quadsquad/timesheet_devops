@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,6 +32,8 @@ public class EmployeServiceImpl implements IEmployeService {
 	ContratRepository contratRepoistory;
 	@Autowired
 	TimesheetRepository timesheetRepository;
+	
+	private static final Logger l = LogManager.getLogger(EmployeServiceImpl.class);
 
 	public int ajouterEmploye(Employe employe) {
 		employeRepository.save(employe);
@@ -79,13 +83,19 @@ public class EmployeServiceImpl implements IEmployeService {
 		return contrat.getReference();
 	}
 
+	// Imporving code syntax (Sofien Ressaissi)
 	public void affecterContratAEmploye(int contratId, int employeId) {
-		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
-		Employe employeManagedEntity = employeRepository.findById(employeId).get();
-
-		contratManagedEntity.setEmploye(employeManagedEntity);
-		contratRepoistory.save(contratManagedEntity);
-		
+			try {
+				Contrat contratManagedEntity = contratRepoistory.findById(contratId).orElse(null);
+				Employe employeManagedEntity = employeRepository.findById(employeId).orElse(null);
+				if (contratManagedEntity != null && employeManagedEntity != null) {
+					contratManagedEntity.setEmploye(employeManagedEntity);
+					contratRepoistory.save(contratManagedEntity);
+				}
+			} catch (NullPointerException npe) {
+				l.error(npe);
+			}
+			
 	}
 
 	public String getEmployePrenomById(int employeId) {
@@ -107,8 +117,13 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	public void deleteContratById(int contratId) {
-		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
-		contratRepoistory.delete(contratManagedEntity);
+		Contrat contratManagedEntity = contratRepoistory.findById(contratId).orElse(null);
+		if (contratManagedEntity != null) {
+			contratRepoistory.delete(contratManagedEntity);
+		} else {
+			l.error("Contrat may be NULL");
+		}
+		
 
 	}
 

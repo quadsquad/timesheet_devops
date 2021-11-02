@@ -20,22 +20,26 @@ import tn.esprit.spring.services.EmployeServiceImpl;
 public class ContratTest {
 	
 	@Autowired
-	public EmployeServiceImpl emp_service;
+	public EmployeServiceImpl empservice;
 	
 	private static final Logger l = LogManager.getLogger(ContratTest.class);
 	
 	@After("execution(* tn.esprit.spring.services.*.*(..))")
+	@Test
 	public void testAjoutContrat() {
 		try {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Date dateDebut = dateFormat.parse("2021-04-30");
 			Contrat c1 = new Contrat (dateDebut, "Contrat de travail temporaire", 500);
 			l.debug("Contract is being added!");
-			emp_service.ajouterContrat(c1);
-			emp_service.deleteContratById(c1.getReference());
-			l.info("Contract added successfully! "+c1);
+			empservice.ajouterContrat(c1);
+			empservice.deleteContratById(c1.getReference());
+			String successMsg = "Contract added successfully!";
+			l.info(successMsg);
+			l.info("\n");
+			l.info(c1);
 		} catch (Exception e) {
-			l.error("Error adding contract: "+e);
+			l.error(e);
 		}
 	}
 	
@@ -43,10 +47,10 @@ public class ContratTest {
 	public void testAffectContratToEmp() {
 		try {
 			l.debug("Affecting contract to employe");
-			emp_service.affecterContratAEmploye(1, 1);
+			empservice.affecterContratAEmploye(1, 1);
 			l.info("Contract affected to employe");
 		} catch (Exception e) {
-			l.error("Error affecting contract to emp: "+e);
+			l.error(e);
 		}
 	}
 	
@@ -54,7 +58,7 @@ public class ContratTest {
 	public void testDeleteAllContracts() {
 		try {
 			l.debug("Deleting all contracts");
-			emp_service.deleteAllContratJPQL();
+			empservice.deleteAllContratJPQL();
 			l.info("All contracts are deleted");
 		} catch (Exception e) {
 			l.error("Error deleting all contracts");
