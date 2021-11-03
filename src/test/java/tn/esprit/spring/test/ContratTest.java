@@ -1,5 +1,6 @@
 package tn.esprit.spring.test;
 
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -26,7 +27,7 @@ public class ContratTest {
 	
 	@After("execution(* tn.esprit.spring.services.*.*(..))")
 	@Test
-	public void testAjoutContrat() {
+	public void testAjoutContrat(){
 		try {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Date dateDebut = dateFormat.parse("2021-04-30");
