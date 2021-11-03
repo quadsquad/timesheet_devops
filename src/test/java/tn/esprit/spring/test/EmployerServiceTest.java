@@ -48,11 +48,7 @@ public class EmployerServiceTest {
 	
 	@Test
 	public void testdeletetEmployerById() {
-	
-		
-
 	       l.debug("Deleting employer by prenom");
-
 		es.deleteEmployeById(44);
 		l.info("employer deleted");
 
@@ -60,16 +56,17 @@ public class EmployerServiceTest {
 	}
 	@Test
 public void testgetAllEmployes()  {
-		
-		
+		l.debug("getting all employes");
 		es.getAllEmployes();
-		
+		l.info("all employes");
+
 		}
 
 	@Test
 		public void testgetNombreEmployeJPQL()  {
 		
-			
+		l.debug("getNombreEmployeJPQL");
+
 				assertEquals(4,es.getNombreEmployeJPQL());
 		
 	}
@@ -79,7 +76,8 @@ public void testgetAllEmployes()  {
 	@Test
 	public void testgetSalaireByEmployeIdJPQL() {
 			
-			
+		l.debug("getSalaireByEmployeIdJPQ");
+
 			es.getSalaireByEmployeIdJPQL(1);
 			
 			}
