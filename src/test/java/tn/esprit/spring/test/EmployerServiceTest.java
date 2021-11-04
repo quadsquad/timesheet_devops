@@ -41,7 +41,7 @@ public class EmployerServiceTest {
 	public void testGetEmployerPrenomById()  {
 	
 		
-	assertEquals("benhassine",es.getEmployePrenomById(1));
+	assertEquals("Sofien",es.getEmployePrenomById(1));
 	l.info("get employer Prenom");
 
 	}
@@ -67,20 +67,9 @@ public void testgetAllEmployes()  {
 		
 		l.debug("getNombreEmployeJPQL");
 
-				assertEquals(4,es.getNombreEmployeJPQL());
+				assertEquals(1,es.getNombreEmployeJPQL());
 		
 	}
-	
-
-	
-	@Test
-	public void testgetSalaireByEmployeIdJPQL() {
-			
-		l.debug("getSalaireByEmployeIdJPQ");
-
-			es.getSalaireByEmployeIdJPQL(1);
-			
-			}
 
       @Test
 		public void testmettreAjourEmailByEmployeIdJPQL() {
