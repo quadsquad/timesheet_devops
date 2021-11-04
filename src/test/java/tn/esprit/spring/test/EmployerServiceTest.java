@@ -33,20 +33,6 @@ public class EmployerServiceTest {
 		l.info(e);
 
 	}
-
-
-	
-	
-	@Test
-	public void testGetEmployerPrenomById()  {
-		
-	assertEquals("Sofien",es.getEmployePrenomById(1));
-		int e= es.ajouterEmploye(new Employe("ahmed", "benhsine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
-
-	assertEquals("benhassine",es.getEmployePrenomById(e));
-	l.info("get employer Prenom");
-
-	}
 	
 	@Test
 	public void testdeletetEmployerById() {
@@ -65,14 +51,6 @@ public void testgetAllEmployes()  {
 		l.info("all employes");
 
 		}
-	@Test
-		public void testgetNombreEmployeJPQL()  {
-		
-		l.debug("getNombreEmployeJPQL");
-
-				assertEquals(1,es.getNombreEmployeJPQL());
-		
-	}
 
       @Test
 		public void testmettreAjourEmailByEmployeIdJPQL() {
