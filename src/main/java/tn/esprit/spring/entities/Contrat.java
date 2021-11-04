@@ -30,6 +30,7 @@ public class Contrat implements Serializable {
 	@OneToOne
 	private Employe employe;
 
+	//empty constructor
 	public Contrat() {
 		super();
 	}
