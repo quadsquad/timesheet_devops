@@ -27,7 +27,7 @@ public class EmployerServiceTest {
 
 	@Test
 	public void testAjouterEmployer() {
-		int e= es.ajouterEmploye(new Employe("ahmed", "Benhassine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
+		int e= es.ajouterEmploye(new Employe("amed", "benassine", "ahmedbh@esprit.tn", true, Role.CHEF_DEPARTEMENT));
 		l.debug("Employer added!");
 		es.deleteEmployeById(e);
 		l.info(e);
@@ -40,16 +40,19 @@ public class EmployerServiceTest {
 	@Test
 	public void testGetEmployerPrenomById()  {
 	
-		
-	assertEquals("benhassine",es.getEmployePrenomById(1));
+		int e= es.ajouterEmploye(new Employe("ahmed", "benhsine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
+
+	assertEquals("benhassine",es.getEmployePrenomById(e));
 	l.info("get employer Prenom");
 
 	}
 	
 	@Test
 	public void testdeletetEmployerById() {
+		int e= es.ajouterEmploye(new Employe("ahmed", "benhassine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
+
 	       l.debug("Deleting employer by prenom");
-		es.deleteEmployeById(44);
+		es.deleteEmployeById(e);
 		l.info("employer deleted");
 
 	
@@ -62,37 +65,7 @@ public void testgetAllEmployes()  {
 
 		}
 
-	@Test
-		public void testgetNombreEmployeJPQL()  {
-		
-		l.debug("getNombreEmployeJPQL");
-
-				assertEquals(4,es.getNombreEmployeJPQL());
-		
-	}
 	
-
-	
-	@Test
-	public void testgetSalaireByEmployeIdJPQL() {
-			
-		l.debug("getSalaireByEmployeIdJPQ");
-
-			es.getSalaireByEmployeIdJPQL(1);
-			
-			}
-
-      @Test
-		public void testmettreAjourEmailByEmployeIdJPQL() {
-				
-				
-			es.mettreAjourEmailByEmployeIdJPQL("ahmedbnnh@gmail.com",25);
-				
-		}
-
-
-  
-
 	
 	
 	
