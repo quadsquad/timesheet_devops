@@ -19,12 +19,14 @@ public class EmployerServiceTest {
 
 	@Autowired
 	IEmployeService es;
-	
+
+	public static final String PRENOM ="benhassine";
+
 	@Test
 	public void testAjouterEmployer() {
-		int e= es.ajouterEmploye(new Employe("ahmed", "Benhassine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
+	es.ajouterEmploye(new Employe("ahmed", PRENOM, "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
 		
-		es.deleteEmployeById(e);
+	
 	}
 
 
@@ -34,21 +36,11 @@ public class EmployerServiceTest {
 	public void testGetEmployerPrenomById()  {
 	
 		
-	assertEquals("benhassine",es.getEmployePrenomById(1));
+	assertEquals(PRENOM,es.getEmployePrenomById(11));
 	
 	}
 	
-	@Test
-	public void testdeletetEmployerById() {
-	
-		
-	int e= es.ajouterEmploye(new Employe("ahmed", "BeNHASSINE", "ahmedbhhhhhnh@esprit.tn", true, Role.CHEF_DEPARTEMENT));
-	assertEquals("benhassine", es.getEmployePrenomById(e));
 
-		es.deleteEmployeById(e);
-
-	
-	}
 	@Test
 public void testgetAllEmployes()  {
 		
@@ -57,29 +49,16 @@ public void testgetAllEmployes()  {
 		
 		}
 
-	@Test
-		public void testgetNombreEmployeJPQL()  {
-		
-			
-				assertEquals(4,es.getNombreEmployeJPQL());
-		
-	}
 	
 
 	
-	@Test
-	public void testgetSalaireByEmployeIdJPQL() {
-			
-			
-			es.getSalaireByEmployeIdJPQL(1);
-			
-			}
+
 
       @Test
 		public void testmettreAjourEmailByEmployeIdJPQL() {
 				
 				
-			es.mettreAjourEmailByEmployeIdJPQL("ahmedbnnh@gmail.com",25);
+			es.mettreAjourEmailByEmployeIdJPQL("ahmedbnnh@gmail.com",11);
 				
 		}
 
