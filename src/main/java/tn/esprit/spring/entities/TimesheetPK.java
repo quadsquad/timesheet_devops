@@ -37,6 +37,10 @@ public class TimesheetPK implements Serializable {
 	}
 
 	
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 	public void setIdMission(int idMission) {
 		this.idMission = idMission;
 	}

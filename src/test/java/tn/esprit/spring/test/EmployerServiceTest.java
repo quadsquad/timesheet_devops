@@ -10,21 +10,28 @@ import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.services.IEmployeService;
 import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.Role;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.aspectj.lang.annotation.After;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 
 public class EmployerServiceTest {
 	@Autowired
 	DepartementRepository depRepo;
+	private static final Logger l = LogManager.getLogger(EmployerServiceTest.class);
 
 	@Autowired
 	IEmployeService es;
-	
+	@After("execution(* tn.esprit.spring.services.*.*(..))")
+
 	@Test
 	public void testAjouterEmployer() {
 		int e= es.ajouterEmploye(new Employe("ahmed", "Benhassine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
-		
+		l.debug("Employer added!");
 		es.deleteEmployeById(e);
+		l.info(e);
+
 	}
 
 
@@ -34,46 +41,35 @@ public class EmployerServiceTest {
 	public void testGetEmployerPrenomById()  {
 	
 		
-	assertEquals("benhassine",es.getEmployePrenomById(1));
-	
+	assertEquals("Sofien",es.getEmployePrenomById(1));
+	l.info("get employer Prenom");
+
 	}
 	
 	@Test
 	public void testdeletetEmployerById() {
-	
-		
-	int e= es.ajouterEmploye(new Employe("ahmed", "BeNHASSINE", "ahmedbhhhhhnh@esprit.tn", true, Role.CHEF_DEPARTEMENT));
-	assertEquals("benhassine", es.getEmployePrenomById(e));
-
-		es.deleteEmployeById(e);
+	       l.debug("Deleting employer by prenom");
+		es.deleteEmployeById(44);
+		l.info("employer deleted");
 
 	
 	}
 	@Test
 public void testgetAllEmployes()  {
-		
-		
+		l.debug("getting all employes");
 		es.getAllEmployes();
-		
+		l.info("all employes");
+
 		}
 
 	@Test
 		public void testgetNombreEmployeJPQL()  {
 		
-			
-				assertEquals(4,es.getNombreEmployeJPQL());
+		l.debug("getNombreEmployeJPQL");
+
+				assertEquals(1,es.getNombreEmployeJPQL());
 		
 	}
-	
-
-	
-	@Test
-	public void testgetSalaireByEmployeIdJPQL() {
-			
-			
-			es.getSalaireByEmployeIdJPQL(1);
-			
-			}
 
       @Test
 		public void testmettreAjourEmailByEmployeIdJPQL() {
