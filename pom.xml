@@ -56,7 +56,9 @@
 
 		</plugins>
 		
+	<finalName>timesheet_devops</finalName>
 	</build>
+	
 <distributionManagement>
     <repository>
       <id>deploymentRepo</id>
