@@ -40,7 +40,7 @@ public class EmployerServiceTest {
 	@Test
 	public void testGetEmployerPrenomById()  {
 	
-		int e= es.ajouterEmploye(new Employe("ahmed", "benhsine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
+		int e= es.ajouterEmploye(new Employe("ahmed", "benhassine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
 
 	assertEquals("benhassine",es.getEmployePrenomById(e));
 	l.info("get employer Prenom");
