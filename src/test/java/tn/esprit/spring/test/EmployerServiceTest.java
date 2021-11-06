@@ -23,6 +23,7 @@ public class EmployerServiceTest {
 
 	@Autowired
 	IEmployeService es;
+<<<<<<< HEAD
 	@After("execution(* tn.esprit.spring.services.*.*(..))")
 
 	@Test
@@ -32,6 +33,16 @@ public class EmployerServiceTest {
 		es.deleteEmployeById(e);
 		l.info(e);
 
+=======
+
+	public static final String PRENOM ="benhassine";
+
+	@Test
+	public void testAjouterEmployer() {
+	es.ajouterEmploye(new Employe("ahmed", PRENOM, "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
+		
+	
+>>>>>>> origin/syrine
 	}
 
 
@@ -41,6 +52,7 @@ public class EmployerServiceTest {
 	public void testGetEmployerPrenomById()  {
 	
 		
+<<<<<<< HEAD
 	assertEquals("Sofien",es.getEmployePrenomById(1));
 	l.info("get employer Prenom");
 
@@ -51,9 +63,13 @@ public class EmployerServiceTest {
 	       l.debug("Deleting employer by prenom");
 		es.deleteEmployeById(44);
 		l.info("employer deleted");
-
+=======
+	assertEquals(PRENOM,es.getEmployePrenomById(11));
 	
 	}
+	
+>>>>>>> origin/syrine
+
 	@Test
 public void testgetAllEmployes()  {
 		l.debug("getting all employes");
@@ -62,6 +78,7 @@ public void testgetAllEmployes()  {
 
 		}
 
+<<<<<<< HEAD
 	@Test
 		public void testgetNombreEmployeJPQL()  {
 		
@@ -70,12 +87,18 @@ public void testgetAllEmployes()  {
 				assertEquals(1,es.getNombreEmployeJPQL());
 		
 	}
+=======
+	
+
+	
+
+>>>>>>> origin/syrine
 
       @Test
 		public void testmettreAjourEmailByEmployeIdJPQL() {
 				
 				
-			es.mettreAjourEmailByEmployeIdJPQL("ahmedbnnh@gmail.com",25);
+			es.mettreAjourEmailByEmployeIdJPQL("ahmedbnnh@gmail.com",11);
 				
 		}
 
