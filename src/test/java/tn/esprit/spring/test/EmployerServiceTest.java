@@ -9,6 +9,9 @@ import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.services.IEmployeService;
 import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.Role;
+
+import static org.junit.Assert.assertEquals;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.annotation.After;
@@ -19,7 +22,7 @@ public class EmployerServiceTest {
 	@Autowired
 	DepartementRepository depRepo;
 	private static final Logger l = LogManager.getLogger(EmployerServiceTest.class);
-
+//
 	@Autowired
 	IEmployeService es;
 	@After("execution(* tn.esprit.spring.services.*.*(..))")
@@ -30,6 +33,19 @@ public class EmployerServiceTest {
 		l.debug("Employer added!");
 		es.deleteEmployeById(e);
 		l.info(e);
+
+	}
+
+
+	
+	
+	@Test
+	public void testGetEmployerPrenomById()  {
+	
+		int e= es.ajouterEmploye(new Employe("ahmed", "benhassine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
+
+	assertEquals("benhassine",es.getEmployePrenomById(e));
+	l.info("get employer Prenom");
 
 	}
 	
