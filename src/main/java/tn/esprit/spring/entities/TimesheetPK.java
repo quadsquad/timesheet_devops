@@ -35,9 +35,6 @@ public class TimesheetPK implements Serializable {
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
 	}
-
-	
-
 	public void setIdMission(int idMission) {
 		this.idMission = idMission;
 	}
