@@ -23,7 +23,6 @@ public class TimesheetPK implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date dateFin;
 	
-
 	public TimesheetPK() {
 		super();
 	}
@@ -35,6 +34,11 @@ public class TimesheetPK implements Serializable {
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
 	}
+<<<<<<< HEAD
+=======
+
+	
+>>>>>>> origin/amine
 	public void setIdMission(int idMission) {
 		this.idMission = idMission;
 	}
