@@ -10,88 +10,61 @@ import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.services.IEmployeService;
 import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.Role;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.aspectj.lang.annotation.After;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 
 public class EmployerServiceTest {
-	@Autowired
-	DepartementRepository depRepo;
+@Autowired
+DepartementRepository depRepo;
+private static final Logger l = LogManager.getLogger(EmployerServiceTest.class);
 
-	@Autowired
-	IEmployeService es;
-	
-	@Test
-	public void testAjouterEmployer() {
-		int e= es.ajouterEmploye(new Employe("ahmed", "Benhassine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
-		
-		es.deleteEmployeById(e);
-	}
+@Autowired
+IEmployeService es;
+@After("execution(* tn.esprit.spring.services.*.*(..))")
 
-
-	
-	
-	@Test
-	public void testGetEmployerPrenomById()  {
-	
-		
-	assertEquals("benhassine",es.getEmployePrenomById(1));
-	
-	}
-	
-	@Test
-	public void testdeletetEmployerById() {
-	
-		
-	int e= es.ajouterEmploye(new Employe("ahmed", "BeNHASSINE", "ahmedbhhhhhnh@esprit.tn", true, Role.CHEF_DEPARTEMENT));
-	assertEquals("benhassine", es.getEmployePrenomById(e));
-
-		es.deleteEmployeById(e);
-
-	
-	}
-	@Test
-public void testgetAllEmployes()  {
-		
-		
-		es.getAllEmployes();
-		
-		}
-
-	@Test
-		public void testgetNombreEmployeJPQL()  {
-		
-			
-				assertEquals(4,es.getNombreEmployeJPQL());
-		
-	}
-	
-
-	
-	@Test
-	public void testgetSalaireByEmployeIdJPQL() {
-			
-			
-			es.getSalaireByEmployeIdJPQL(1);
-			
-			}
-
-      @Test
-		public void testmettreAjourEmailByEmployeIdJPQL() {
-				
-				
-			es.mettreAjourEmailByEmployeIdJPQL("ahmedbnnh@gmail.com",25);
-				
-		}
-
-
-  
-
-	
-	
-	
+@Test
+public void testAjouterEmployer() {
+int e= es.ajouterEmploye(new Employe("amed", "benassine", "ahmedbh@esprit.tn", true, Role.CHEF_DEPARTEMENT));
+l.debug("Employer added!");
+es.deleteEmployeById(e);
+l.info(e);
 
 }
 
-	
+
+@Test
+public void testGetEmployerPrenomById()  {
+
+int e= es.ajouterEmploye(new Employe("ahmed", "benhassine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
+
+assertEquals("benhassine",es.getEmployePrenomById(e));
+l.info("get employer Prenom");
+
+}
+
+@Test
+public void testdeletetEmployerById() {
+int e= es.ajouterEmploye(new Employe("ahmed", "benhassine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
+
+      l.debug("Deleting employer by prenom");
+es.deleteEmployeById(e);
+l.info("tfaskhet");
 
 
+}
+@Test
+public void testgetAllEmployes()  {
+l.debug("getting all employes");
+es.getAllEmployes();
+
+}
+
+
+
+
+
+
+}

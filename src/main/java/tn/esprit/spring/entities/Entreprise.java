@@ -20,6 +20,7 @@ public class Entreprise implements Serializable{
 	 */
 	private static final long serialVersionUID = 3152690779535828408L;
 
+	//test test
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
