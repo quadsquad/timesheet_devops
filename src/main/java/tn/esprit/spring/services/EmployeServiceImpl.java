@@ -49,8 +49,6 @@ public class EmployeServiceImpl implements IEmployeService {
 			String msg = "Employe may be NULL";
 			l.info(msg);
 		}
-		
-
 	}
 
 	@Transactional	
