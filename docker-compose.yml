@@ -25,7 +25,7 @@ services:
       - db
     image: tomcat
     volumes:
-      - ./target/timesheet_devops.war
+      - /target/timesheet_devops.war
     ports:
       - '8085:8088'
     environment:
