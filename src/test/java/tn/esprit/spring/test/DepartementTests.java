@@ -39,7 +39,7 @@ public class DepartementTests {
 			//créer un nouveau departement
 		Departement d1= new Departement("IT");
 		entrepriseServiceImpl.ajouterDepartement(d1);
-		//entrepriseServiceImpl.deleteDepartementById(d1.getId());
+		entrepriseServiceImpl.deleteDepartementById(d1.getId());
 		ies.getSalaireMoyenByDepartementId(d1.getId());
 	}
 	
