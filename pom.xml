@@ -53,10 +53,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-
 		</plugins>
-		
-<<<<<<< HEAD
 	<finalName>timesheet_devops</finalName>
 	</build>
 	
@@ -67,10 +64,5 @@
       <url>http://localhost:8081/repository/maven-releases</url>
     </repository>
  </distributionManagement>
-</project>
-=======
-		<finalName>timesheet_devops</finalName>
-	</build>
 	
 </project>
->>>>>>> origin/amine

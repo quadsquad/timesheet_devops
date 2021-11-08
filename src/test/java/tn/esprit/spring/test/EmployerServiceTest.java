@@ -9,12 +9,6 @@ import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.services.IEmployeService;
 import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.Role;
-<<<<<<< HEAD
-
-import static org.junit.Assert.assertEquals;
-
-=======
->>>>>>> origin/amine
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.annotation.After;
@@ -22,11 +16,10 @@ import org.aspectj.lang.annotation.After;
 @SpringBootTest
 
 public class EmployerServiceTest {
-<<<<<<< HEAD
 	@Autowired
 	DepartementRepository depRepo;
 	private static final Logger l = LogManager.getLogger(EmployerServiceTest.class);
-//
+
 	@Autowired
 	IEmployeService es;
 	@After("execution(* tn.esprit.spring.services.*.*(..))")
@@ -37,19 +30,6 @@ public class EmployerServiceTest {
 		l.debug("Employer added!");
 		es.deleteEmployeById(e);
 		l.info(e);
-
-	}
-
-
-	
-	
-	@Test
-	public void testGetEmployerPrenomById()  {
-	
-		int e= es.ajouterEmploye(new Employe("ahmed", "benhassine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
-
-	assertEquals("benhassine",es.getEmployePrenomById(e));
-	l.info("get employer Prenom");
 
 	}
 	
@@ -83,56 +63,3 @@ public void testgetAllEmployes()  {
 	
 
 }
-=======
-@Autowired
-DepartementRepository depRepo;
-private static final Logger l = LogManager.getLogger(EmployerServiceTest.class);
-
-@Autowired
-IEmployeService es;
-@After("execution(* tn.esprit.spring.services.*.*(..))")
-
-@Test
-public void testAjouterEmployer() {
-int e= es.ajouterEmploye(new Employe("amed", "benassine", "ahmedbh@esprit.tn", true, Role.CHEF_DEPARTEMENT));
-l.debug("Employer added!");
-es.deleteEmployeById(e);
-l.info(e);
-
-}
-
-
-@Test
-public void testGetEmployerPrenomById()  {
-
-int e= es.ajouterEmploye(new Employe("ahmed", "benhassine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
-
-assertEquals("benhassine",es.getEmployePrenomById(e));
-l.info("get employer Prenom");
-
-}
-
-@Test
-public void testdeletetEmployerById() {
-int e= es.ajouterEmploye(new Employe("ahmed", "benhassine", "ahmedbenhassine@esprit.tn", true, Role.CHEF_DEPARTEMENT));
-
-      l.debug("Deleting employer by prenom");
-es.deleteEmployeById(e);
-l.info("tfaskhet");
-
-
-}
-@Test
-public void testgetAllEmployes()  {
-l.debug("getting all employes");
-es.getAllEmployes();
-
-}
-
-
-
-
-
-
-}
->>>>>>> origin/amine
